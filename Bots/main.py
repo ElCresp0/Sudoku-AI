@@ -31,8 +31,14 @@ s = ''.join(map(str, [''.join(map(str, i)) for i in puzzleToSolve]))
 
 print("Sudoku Problem")
 draw(puzzleToSolve)
+print(s)
+# exit()
 print("\nSudoku Solution")
 solver1 = brute_force(s)
-print(solver1.sudoku_brute_force())
+# print(solver1.sudoku_brute_force())
+solver1.sudoku_brute_force()
+# s = solver1.result
+# for i in len(s):
 
+draw(solver1.result)
  #sudoku_brute_force(s)
