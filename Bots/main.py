@@ -1,3 +1,5 @@
+# SOURCE: https://betterprogramming.pub/sudoku-solver-a-brute-force-approach-using-python-ee180b071346
+
 from brute_force import brute_force
 
 
