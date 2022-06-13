@@ -126,6 +126,55 @@ public class SudoKuStructure {
         }
     }
     
+    private boolean can_be_deduced(int i,int j){
+        if(board[i][j]==0)return false;
+        int[] possible = {1,2,3,4,5,6,7,8,9};
+        for(int k=0;k<9;k++){
+            for(int f = 0;f<9;f++){
+                if(possible[f] == board[i][k]){
+                    possible[f] = -1;
+                    break;
+                }
+                if(possible[f] == board[k][j]){
+                    possible[f] = -1;
+                    break;
+                }
+            }
+        }
+        for(int k=0;k<3;k++){
+            for(int g = 0;g<3;g++){
+                for(int f = 0;f<9;f++){
+                    if(possible[f] == board[(int)(i / 3) * 3 + k][(int)(j / 3) * 3 + g]){
+                        possible[f] = -1;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        
+        for(int k=0;k<9;k++){
+            if(possible[k]!=-1 && possible[k] != board[i][j]){
+                return false;
+            }
+        }
+        return true;
+    } 
+     
+    public void remove_numbers_to_one_solution(){
+        boolean clear = true;
+        for(int i=0;i<200;i++){
+            int val = random.nextInt(81);
+            if(can_be_deduced(val/9,val%9)){
+                board[val/9][val%9]= 0;                
+            }
+        }
+        for(int i=0;i<81;i++){
+            if(can_be_deduced(i/9,i%9)){
+                board[i/9][i%9]= 0;                
+            }
+        }
+    }    
     
     public void makeBoard(){
         //this.board = Arrays.copyOf(board_re,81);
