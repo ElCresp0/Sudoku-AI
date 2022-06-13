@@ -33,6 +33,21 @@ That means the evaluation grows for the worse solutions, and for that reason
 the function in geneticSolver.py is called reversed_fitness, and its values
 are multiplied by (-1) in some situations to make it more intuitive in use.
 
+SELECTION
+From the i-th generation the elite and some other solutions are selected.
+The odds of being selected are better for the solutions with a higher fitness value
+(roulette wheel method)
+
+CROSSING
+When crossing, each gene is chosen from one of two parents randomly if it's possible within
+available numbers, otherwise the algorithm searches for an optimal number
+(see the last paragraph of this readme file). Mindfull selection of the better genes from both
+parents has been tried but it takes much more time and sometimes even gives worse results.
+
+MUTATION
+Random two numbers of the solution are selected and switched,
+the initial numbers of the input are always preserved.
+
 In the functions that modify a solution, such as mutation, crossing
 or generation, the care is taken to make sure that the distribution of used
 numbers is even (9x1, 9x2, ...). In the earlier versions of the project it was
