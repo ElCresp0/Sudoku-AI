@@ -6,9 +6,14 @@
 package com.mycompany.sudoku;
 
 import com.mycompany.sudoku.classes.SudoKuStructure;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.Writer;
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,12 +23,31 @@ public class mainApp {
     public static void main(String[] args){
 
         SudoKuStructure sudoku = new SudoKuStructure();
+/* for one solution */
+        try (PrintWriter writer = new PrintWriter("sudoku.csv")) {
 
-        sudoku.makeBoard();
-        sudoku.remove_numbers(60);
+            StringBuilder sb = new StringBuilder();
+            sb.append("quizzes");
+            sb.append(',');
+            sb.append("solutions");
+            sb.append('\n');
 
-        System.out.println(sudoku);
+            for (String[] temp : dataLines) {
+                sb.append(temp[0]);
+                sb.append(',');
+                sb.append(temp[1]);
+                sb.append('\n');
+            }
+
+            writer.write(sb.toString());
+
+            System.out.println("done!");
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
         
+/* for many solutions */
         try {
             Writer writer = new FileWriter("output.txt");
             for(int i=0;i<300;i++){
