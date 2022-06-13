@@ -1,3 +1,6 @@
+# Author: ElCresp0
+
+
 from random import random, randrange
 from copy import copy, deepcopy
 
@@ -80,49 +83,6 @@ class GeneticSolver:
 
     def get_file(self, coords, solution):
         return [row[coords[1]] for row in solution]
-
-    # coords: [row, col]
-    # def evaluate_gene(self, coords, solution):
-    #     ret = 3 * 8
-    #     functions = [self.get_file, self.get_line, self.get_square]
-    #     for function in functions:
-    #         my_list = function(coords, solution)
-    #         ret -= abs(1 - my_list.count(solution[coords[0]][coords[1]]))
-    #     return ret
-
-    # def fitness(self, solution):
-    #     ret = self.fitness_of_a_correct_solution
-    #     for row in range(len(solution)):
-    #         for col in range(len(solution[0])):
-    #             functions = [self.get_file, self.get_line, self.get_square]
-    #             for function in functions:
-    #                 my_list = function([row, col], solution)
-    #                 ret -= abs(1 - my_list.count(solution[row][col]))
-    #     return abs(self.fitness_of_a_correct_solution - ret)
-        
-    # def reversed_fitness(self, solution):
-    #     ret = 1
-    #     for row in range(len(solution)):
-    #         for col in range(len(solution[0])):
-    #             functions = [self.get_file, self.get_line, self.get_square]
-    #             for function in functions:
-    #                 my_list = function([row, col], solution)
-    #                 ret += abs(1 - my_list.count(solution[row][col]))
-    #     return ret
-
-    # def reverse_fitness(self, population) -> dict:
-    #     ret = []
-    #     for solution in enumerate(population):
-    #        ret.append([solution[0], 1 / self.fitness(solution[1])])
-    #     ret = dict(sorted(ret, key = lambda x: x[1]))
-    #     return ret
-
-    # def population_fitness_f(self, population) -> dict:
-    #     ret = []
-    #     for solution in enumerate(population):
-    #         ret.append([solution[0], 1 / self.reversed_fitness(solution[1])])
-    #     return dict(sorted(ret, key = lambda v: -v[1]))
-
 
 
     # reversed because the return value gets bigger for worse solutions
