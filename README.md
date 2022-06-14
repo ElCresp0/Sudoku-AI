@@ -7,3 +7,4 @@ Folder Bots includes brute force approach where we look for fields with only one
 Folder Genetic includes a genetic algorith approch for Sudoku.
 
 Folder Neurals includes convolutional neural network approach to sudoku solving.
+my_model_51 is trained model for NN used in testing
